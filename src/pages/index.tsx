@@ -2,39 +2,59 @@ import {
   Box,
   Button,
   Flex,
-  FormControl,
   FormLabel,
   Image,
   Input,
   Text,
   Textarea,
-  VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import Header from "../Components/Header";
+import Icon from "../Components/Icon";
 
 export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
-  const [message, setMessage] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [mensagem, setMensagem] = useState("");
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    alert(`nome ${name} email:${email} número${number} message ${message}`);
+
+    const data = { name, email, telefone, mensagem };
+
+    fetch("http://localhost:3000/dev/email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).then((resposta) => {
+      if (resposta.ok) {
+        setName("");
+        setEmail("");
+        setTelefone("");
+        setMensagem("");
+        alert(
+          `Obrigado por enviar sua mensagem ${name}! Em breve entraremos em contato com você.`
+        );
+      }
+    });
   };
 
   return (
     <Box>
-      <Header />
-      <Flex backgroundColor="#2e2e2e">
+      <Flex backgroundColor="#2e2e2e" direction={{ base: "column", md: "row" }}>
         <Image
           src="./imagem-contrato.jpg"
           alt="imagem-de-contrato"
-          w="60%"
-          h="620px"
+          width={{ base: "auto", md: "60vw" }}
+          h={{ base: "130px", md: "620px" }}
+          objectFit="cover"
         />
-        <Box width="40%" justifyContent="center" color="#D6AFA8" p="80px 50px">
+        <Box
+          width={{ base: "auto", md: "40vw" }}
+          justifyContent="center"
+          color="#D6AFA8"
+          p="50px 50px"
+        >
           <Text fontSize="34px" fontWeight="bold">
             Mande o seu caso
           </Text>
@@ -51,6 +71,7 @@ export default function Home() {
                 _placeholder={{ color: "#D6AFA8" }}
                 focusBorderColor="#D6AFA8"
                 onChange={(event) => setName(event.currentTarget.value)}
+                value={name}
               />
             </FormLabel>
             <FormLabel htmlFor="email">
@@ -62,6 +83,7 @@ export default function Home() {
                 _placeholder={{ color: "#D6AFA8" }}
                 focusBorderColor="#D6AFA8"
                 onChange={(event) => setEmail(event.currentTarget.value)}
+                value={email}
               />
             </FormLabel>
             <FormLabel htmlFor="telefone">
@@ -72,7 +94,8 @@ export default function Home() {
                 type="number"
                 _placeholder={{ color: "#D6AFA8" }}
                 focusBorderColor="#D6AFA8"
-                onChange={(event) => setNumber(event.currentTarget.value)}
+                onChange={(event) => setTelefone(event.currentTarget.value)}
+                value={telefone}
               />
             </FormLabel>
             <FormLabel htmlFor="mensagem">
@@ -83,14 +106,50 @@ export default function Home() {
                 borderColor="#D6AFA8"
                 _placeholder={{ color: "#D6AFA8" }}
                 focusBorderColor="#D6AFA8"
-                onChange={(event) => setMessage(event.currentTarget.value)}
+                onChange={(event) => setMensagem(event.currentTarget.value)}
+                value={mensagem}
               />
             </FormLabel>
-            <Button width="full" mt={4} type="submit">
-              Sign In
+            <Button
+              width="full"
+              mt={4}
+              type="submit"
+              backgroundColor="#D6AFA8"
+              color="#2e2e2e"
+            >
+              Enviar
             </Button>
           </form>
         </Box>
+      </Flex>
+      <Flex
+        w="100%"
+        h="470px"
+        justifyContent="center"
+        alignItems="center"
+        gap="9%"
+        direction={{ base: "column-reverse", md: "row" }}
+      >
+        <Icon
+          iconPath="./trabalho-ico.svg"
+          iconAlt="ícone-direito-trabalho"
+          text="Direito do Trabalho"
+        />
+        <Icon
+          iconPath="./civil-ico.svg"
+          iconAlt="ícone-direito-civil"
+          text="Direito Civil"
+        />
+        <Icon
+          iconPath="./familia-ico.svg"
+          iconAlt="ícone-direito-familia"
+          text="Direito de Família"
+        />
+        <Icon
+          iconPath="./cart-ico.svg"
+          iconAlt="ícone-direito-consumidor"
+          text="Direito do Consumidor"
+        />
       </Flex>
     </Box>
   );
