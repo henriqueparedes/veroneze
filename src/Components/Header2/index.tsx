@@ -15,39 +15,44 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
-const Links = ["Início", "Áreas de Atuação", "Sobre", "Contato"];
-
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
+// const Links = ["Início", "Áreas de Atuação", "Sobre", "Contato"];
+const Links = [
+  { name: "Início", url: "/" },
+  { name: "Áreas de Atuação", url: "#areas" },
+  { name: "Sobre", url: "#sobre" },
+  { name: "Contato", url: "teste4" },
+];
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Box bg="#white">
-        <Flex h={100} alignItems={"center"} justifyContent={"space-between"}>
-          <HStack alignItems={"center"} m="auto">
-            <Image src="./logo.png" alt="Jessica Veroneze" w="283px" h="70px" />
+      <Box backgroundColor="#262626">
+        <Flex h={100} alignItems={"center"} px="15px">
+          <HStack
+            alignItems={"center"}
+            m="auto"
+            gap={{ base: "none", md: "8vw", lg: "27vw" }}
+          >
+            <Link href="/">
+              <Image
+                src="./logo.png"
+                alt="Jessica Veroneze"
+                w="283px"
+                h="70px"
+              />
+            </Link>
             <HStack
               as={"nav"}
               spacing={4}
               display={{ base: "none", md: "flex" }}
+              color="#D6AFA8"
             >
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <Link key={link.name} href={link.url} px={2} py={1}>
+                  {link.name}
+                </Link>
               ))}
             </HStack>
           </HStack>
@@ -63,6 +68,8 @@ export default function Simple() {
             </Menu>
           </Flex>
           <IconButton
+            color="#D6AFA8"
+            bg="#2e2e2e"
             size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             aria-label={"Open Menu"}
@@ -73,9 +80,11 @@ export default function Simple() {
 
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={4}>
+            <Stack as={"nav"} spacing={4} color="#D6AFA8">
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <Link key={link.name} href={link.url} px={2} py={1}>
+                  {link.name}
+                </Link>
               ))}
             </Stack>
           </Box>

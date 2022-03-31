@@ -46,11 +46,12 @@ export default function Home() {
           src="./imagem-contrato.jpg"
           alt="imagem-de-contrato"
           width={{ base: "auto", md: "60vw" }}
-          h={{ base: "130px", md: "620px" }}
+          h={{ base: "240px", md: "620px" }}
           objectFit="cover"
         />
         <Box
-          width={{ base: "auto", md: "40vw" }}
+          h={{ base: "auto", md: "620px" }}
+          w={{ base: "auto", md: "40vw" }}
           justifyContent="center"
           color="#D6AFA8"
           p="50px 50px"
@@ -62,7 +63,7 @@ export default function Home() {
             Preencha o formulário
           </Text>
           <form onSubmit={handleSubmit}>
-            <FormLabel htmlFor="name">
+            <FormLabel htmlFor="name" id="form">
               <Input
                 placeholder="Nome"
                 id="name"
@@ -123,12 +124,13 @@ export default function Home() {
         </Box>
       </Flex>
       <Flex
-        w="100%"
+        mt={{ base: "230px", md: "0" }}
+        id="areas"
         h="470px"
         justifyContent="center"
         alignItems="center"
         gap="9%"
-        direction={{ base: "column-reverse", md: "row" }}
+        direction={{ base: "column", md: "row" }}
       >
         <Icon
           iconPath="./trabalho-ico.svg"
@@ -150,6 +152,46 @@ export default function Home() {
           iconAlt="ícone-direito-consumidor"
           text="Direito do Consumidor"
         />
+      </Flex>
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        mt={{ base: "230px", md: "0" }}
+        id="sobre"
+      >
+        <Image
+          src="./imagem-sobre.jpg"
+          alt="imagem-sobre-mim"
+          width={{ base: "auto", md: "50vw" }}
+          objectFit="cover"
+        />
+        <Box
+          w={{ base: "auto", md: "50vw" }}
+          justifyContent="center"
+          color="#D6AFA8"
+          p="50px 50px"
+          backgroundColor="#2e2e2e"
+        >
+          <Box>
+            <Text fontSize="40px" fontWeight="bold" m="40px auto 15px auto">
+              Sobre
+            </Text>
+            <Box w="170px" border="solid 3px" mb="70px" />
+            <Text fontSize="22px" mt="25px">
+              Advogada inscrita na OAB/RS n. 118.221. Bacharela em Direito pela
+              UniRitter em 2018.
+            </Text>
+            <Text fontSize="22px" mt="25px">
+              Pós-graduada pela FMP - Fundação Escola Superior do Ministério
+              Público - Direito Social do Trabalho, Processo do Trabalho e da
+              Seguridade Social em 2021.
+            </Text>
+            <Text fontSize="22px" mt="25px">
+              Atuação nas áreas de direito do trabalho, direito civil, direito
+              de família e direito do consumidor. Atuante na área trabalhista
+              patronal desde 2018, no contencioso e no consultivo.
+            </Text>
+          </Box>
+        </Box>
       </Flex>
     </Box>
   );
