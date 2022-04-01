@@ -4,13 +4,14 @@ type Props = {
   text: string;
   iconPath: string;
   iconAlt: string;
+  aditionalInfo?: string;
 };
 
 export default function Icon(props: Props) {
-  const { text, iconPath, iconAlt } = props;
+  const { text, iconPath, iconAlt, aditionalInfo } = props;
 
   return (
-    <Box>
+    <Box alignItems={"center"}>
       <Flex
         backgroundColor="#D6AFA8"
         w="110px"
@@ -20,9 +21,12 @@ export default function Icon(props: Props) {
       >
         <Image src={iconPath} alt={iconAlt} h="55px" w="55px" m="auto" />
       </Flex>
-      <Text m="20px" fontWeight="bold">
-        {text}
-      </Text>
+      <Box>
+        <Text m="25px" fontWeight="bold">
+          {text}
+        </Text>
+      </Box>
+      <Box>{aditionalInfo ? <Text m="40px">{aditionalInfo}</Text> : null}</Box>
     </Box>
   );
 }

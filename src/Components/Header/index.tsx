@@ -27,7 +27,13 @@ export default function Header() {
 
   return (
     <>
-      <Box backgroundColor="#262626" position="sticky" top="0" zIndex="1">
+      <Box
+        backgroundColor="#262626"
+        position="sticky"
+        top="0"
+        zIndex="1"
+        boxShadow="10px 1px 5px black"
+      >
         <Flex h={100} alignItems={"center"} px="15px">
           <HStack
             alignItems={"center"}
