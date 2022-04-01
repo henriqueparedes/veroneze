@@ -41,7 +41,11 @@ export default function Home() {
 
   return (
     <Box>
-      <Flex backgroundColor="#2e2e2e" direction={{ base: "column", md: "row" }}>
+      <Flex
+        backgroundColor="#2e2e2e"
+        direction={{ base: "column", md: "row" }}
+        zIndex="0"
+      >
         <Image
           src="./imagem-contrato.jpg"
           alt="imagem-de-contrato"
@@ -156,7 +160,6 @@ export default function Home() {
       <Flex
         direction={{ base: "column", md: "row" }}
         mt={{ base: "230px", md: "0" }}
-        id="sobre"
       >
         <Image
           src="./imagem-sobre.jpg"
@@ -171,7 +174,7 @@ export default function Home() {
           p="50px 50px"
           backgroundColor="#2e2e2e"
         >
-          <Box>
+          <Box id="sobre">
             <Text fontSize="40px" fontWeight="bold" m="40px auto 15px auto">
               Sobre
             </Text>
