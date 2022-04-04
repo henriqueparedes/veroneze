@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 
 export default function AboutMe() {
   return (
@@ -12,18 +12,19 @@ export default function AboutMe() {
         width={{ base: "auto", md: "50vw" }}
         objectFit="cover"
       />
-      <Box
+      <Flex
         w={{ base: "auto", md: "50vw" }}
+        direction="column"
         justifyContent="center"
         color="#D6AFA8"
-        p="50px 50px"
+        p="50px"
         backgroundColor="#2e2e2e"
       >
-        <Box id="sobre">
-          <Text fontSize="40px" fontWeight="bold" m="40px auto 15px auto">
+        <Flex id="sobre" direction="column">
+          <Text fontSize="40px" fontWeight="bold">
             Sobre
           </Text>
-          <Box w="170px" border="solid 3px" mb="70px" />
+          <Flex w="170px" border="solid 3px" mb="70px" />
           <Text fontSize="22px" mt="25px">
             Advogada inscrita na OAB/RS n. 118.221. Bacharela em Direito pela
             UniRitter em 2018.
@@ -38,8 +39,8 @@ export default function AboutMe() {
             família e direito do consumidor. Atuante na área trabalhista
             patronal desde 2018, no contencioso e no consultivo.
           </Text>
-        </Box>
-      </Box>
+        </Flex>
+      </Flex>
     </Flex>
   );
 }

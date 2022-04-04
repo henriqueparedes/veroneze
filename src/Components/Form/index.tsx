@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, FormLabel, Input, Textarea } from "@chakra-ui/react";
+import { Button, FormLabel, Input, Textarea, Flex } from "@chakra-ui/react";
 
 export default function Form() {
   const [name, setName] = useState("");

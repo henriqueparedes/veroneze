@@ -7,9 +7,8 @@ export default function ActingAreas() {
       mt={{ base: "230px", md: "0" }}
       id="areas"
       h="470px"
-      justifyContent="center"
+      justifyContent="space-evenly"
       alignItems="center"
-      gap="9%"
       direction={{ base: "column", md: "row" }}
     >
       <Icon
