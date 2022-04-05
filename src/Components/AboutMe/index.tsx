@@ -3,6 +3,7 @@ import { Flex, Image, Text } from "@chakra-ui/react";
 export default function AboutMe() {
   return (
     <Flex
+      id="sobre"
       direction={{ base: "column", md: "row" }}
       mt={{ base: "230px", md: "0" }}
     >
@@ -20,7 +21,7 @@ export default function AboutMe() {
         p="50px"
         backgroundColor="#2e2e2e"
       >
-        <Flex id="sobre" direction="column">
+        <Flex direction="column">
           <Text fontSize="40px" fontWeight="bold">
             Sobre
           </Text>

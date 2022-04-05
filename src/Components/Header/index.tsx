@@ -16,9 +16,19 @@ import React from "react";
 import { Link as LinkScroll, animateScroll } from "react-scroll";
 
 const Links = [
-  { name: "Áreas de Atuação", url: "areas", offSet: -500 },
-  { name: "Sobre", url: "sobre", offSet: -300 },
-  { name: "Contato", url: "contato", offSet: 0 },
+  {
+    name: "Áreas de Atuação",
+    url: "areas",
+    offSetCellPhone: -530,
+    offSetDesktop: -100,
+  },
+  { name: "Sobre", url: "sobre", offSetCellPhone: -300, offSetDesktop: -100 },
+  {
+    name: "Contato",
+    url: "contato",
+    offSetCellPhone: -300,
+    offSetDesktop: -100,
+  },
 ];
 
 export default function Header() {
@@ -33,10 +43,15 @@ export default function Header() {
       zIndex="1"
       boxShadow="0px 1px 5px black"
     >
-      <Flex alignItems={"center"} justifyContent="center" h={100}>
+      <Flex
+        alignItems={"center"}
+        justifyContent="center"
+        h={100}
+        mx={{ base: "15px", md: "0", lg: "0" }}
+        gap={{ base: "12vw", md: "0", lg: "0" }}
+      >
         <HStack
           alignItems={"center"}
-          m="auto"
           gap={{ base: "none", md: "8vw", lg: "27vw" }}
         >
           <Link>
@@ -71,14 +86,19 @@ export default function Header() {
                 py={1}
                 _hover={{ textDecoration: "underline", cursor: "pointer" }}
               >
-                <LinkScroll to={link.url} smooth={true} duration={1000}>
+                <LinkScroll
+                  to={link.url}
+                  smooth={true}
+                  duration={1000}
+                  offset={link.offSetDesktop}
+                >
                   {link.name}
                 </LinkScroll>
               </Flex>
             ))}
           </HStack>
         </HStack>
-        <Flex alignItems={"center"}>
+        <Flex>
           <Menu>
             <MenuButton
               as={Button}
@@ -92,7 +112,7 @@ export default function Header() {
         <IconButton
           color="#D6AFA8"
           bg="#2e2e2e"
-          size={"md"}
+          size={"lg"}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           aria-label={"Open Menu"}
           display={{ md: "none" }}
@@ -108,7 +128,7 @@ export default function Header() {
         >
           <Stack as={"nav"} spacing={4} color="#D6AFA8">
             <Link
-              px={2}
+              px={5}
               py={1}
               onClick={() => {
                 animateScroll.scrollToTop();
@@ -121,7 +141,7 @@ export default function Header() {
             {Links.map((link) => (
               <Flex
                 key={link.name}
-                px={2}
+                px={5}
                 py={1}
                 _hover={{ textDecoration: "underline", cursor: "pointer" }}
               >
@@ -129,7 +149,7 @@ export default function Header() {
                   to={link.url}
                   smooth={true}
                   duration={1000}
-                  offset={link.offSet}
+                  offset={link.offSetCellPhone}
                   onClick={onClose}
                 >
                   {link.name}

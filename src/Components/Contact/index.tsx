@@ -4,10 +4,9 @@ import Icon from "../IconBuilder";
 
 export default function AboutMe() {
   return (
-    <Flex direction="column">
+    <Flex direction="column" maxWidth="100vw" id="contato">
       <Flex
         mt={{ base: "450px", md: "0" }}
-        id="contato"
         h="470px"
         justifyContent="space-evenly"
         alignItems="center"
