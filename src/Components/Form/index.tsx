@@ -12,7 +12,7 @@ export default function Form() {
 
     const data = { name, email, telefone, mensagem };
 
-    fetch("http://localhost:3000/dev/email", {
+    fetch("https://veroneze-api.herokuapp.com/email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
