@@ -9,6 +9,6 @@ You can check the website here [VeronezeAdvocacia](http://www.veronezeadvocacia.
 
 ![website](VeronezeAdvocacia.png)
 
-Mobile responsibility:
+Mobile responsiveness:
 
 ![websiteMobile](VeronezeAdvocaciaMobile.png)
