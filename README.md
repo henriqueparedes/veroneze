@@ -12,3 +12,5 @@ You can check the website here [VeronezeAdvocacia](http://www.veronezeadvocacia.
 Mobile responsiveness:
 
 ![websiteMobile](VeronezeAdvocaciaMobile.png)
+
+To start the project use Npm install
